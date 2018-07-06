@@ -6,8 +6,8 @@ const Controlls = (props) => {
             <div>
                 <div><span>on/off</span></div>
             </div>
-            <div>
-                <h4>name</h4>
+            <div id='display'>
+                <h4>{props.display}</h4>
             </div>
         </div>
     );
