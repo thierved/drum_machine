@@ -3,11 +3,11 @@ import React from 'react';
 const Controlls = (props) => {
     return (
         <div id="controller">
-            <div>
-                <div><span>on/off</span></div>
+            <div id="powerButton">
+                <div><span></span></div>
             </div>
             <div id='display'>
-                <h4>{props.display}</h4>
+                <h4>{props.display.toUpperCase()}</h4>
             </div>
         </div>
     );
