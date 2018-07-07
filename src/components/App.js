@@ -20,8 +20,6 @@ class App extends Component {
 
   switchIt() {
     this.setState({isOn : !this.state.isOn});
-    console.log(this.state.isOn);
-    
   }
 
   render() {

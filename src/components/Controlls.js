@@ -1,8 +1,6 @@
 import React from 'react';
 
 const Controlls = (props) => {
-   
-
     return (
         <div id="controller">
             <div id="powerButton">
