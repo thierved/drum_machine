@@ -1,28 +1,29 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 
-class DrumPad extends Component {  
-    constructor(props) {
-        super(props);
-    }
+const DrumPad = (props) => {  
 
-    playSound = (name) => {
-        const audio = document.getElementById(this.props.text);
-        if (this.props.isOn === true) {
-            this.props.tune(name);            
-            audio.play();
+    document.addEventListener('keypress', (event) => {
+        if (event.key === props.text.toLowerCase()) {
+            playSound(props.name);
         }
+    });
+    
+    function playSound(name)  {
+        const audio = document.getElementById(props.text);
+        if (props.isOn === true) {
+            props.tune(name);            
+            audio.play();
+        }   
     }
 
-    render() {
-        return(
-            <div className='drum-pad' id={this.props.name} onClick={() => this.playSound(this.props.name)} >
-                {this.props.text}
-                <audio src={this.props.src} className='clip' id={this.props.text} type='audio/mp3'/>
-            </div>
-        );
+    return(
+        <div className='drum-pad' id={props.name} onClick={() => playSound(props.name)} >
+            {props.text}
+            <audio src={props.src} className='clip' id={props.text} type='audio/mp3'/>
+        </div>
+    );
 
-    }
     
 };
 
