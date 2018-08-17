@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import DrumPad from './DrumPad';
+import '../App.css';
 
-export default () => {
+const App = () => {
   return (
-    <div>
+    <div className="container">
       Hello again!
+      <DrumPad />
     </div>
   )
 }
+
+export default App;
