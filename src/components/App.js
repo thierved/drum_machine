@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div id="drum-machine">
       <Controlls />
-      <DrumPads />
+      <DrumPads className="drum-pads" />
     </div>
   )
 }
