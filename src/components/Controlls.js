@@ -6,8 +6,8 @@ const Controlls = () => {
         <div id="switch">
             switch button.
         </div>
-        <div id="drum-machine">
-            display screen.
+        <div id="screen">
+            
         </div>
     </div>
   )
