@@ -1,13 +1,13 @@
 import React from 'react'
 
-const Controlls = () => {
+const Controlls = (props) => {
   return (
     <div className="controlls">
         <div id="switch">
-            switch button.
-        </div>
-        <div id="screen">
             
+        </div>
+        <div id="display">
+            {props.songName}
         </div>
     </div>
   )
