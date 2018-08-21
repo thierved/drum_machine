@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Controlls = (props) => {
+  
   return (
     <div className="controlls">
         <div id="switch">
