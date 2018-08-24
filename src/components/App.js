@@ -19,8 +19,6 @@ class App extends Component {
 
   setName = (name) => {
     this.setState({songName: name});  
-    console.log('ayy');
-        
   }
 
   turnOnOrOff = () => {
