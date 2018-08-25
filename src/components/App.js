@@ -23,13 +23,16 @@ class App extends Component {
 
   turnOnOrOff = () => {
     this.setState({isOn: !this.state.isOn});
+    
   }
 
   render() {
+
+    console.log(this.state.isOn);
     return (
       <div id="drum-machine">
-        <Controlls songName={this.state.songName} switcher={this.turnOnOrOff}/>
-        <DrumPads setName={this.setName}/>
+        <Controlls songName={this.state.songName} switcher={this.turnOnOrOff} isOn={this.state.isOn}/>
+        <DrumPads setName={this.setName} isOn={this.state.isOn}/>
       </div>
     )
   }    
