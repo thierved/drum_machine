@@ -1,10 +1,13 @@
-import ControlBoard from './components/Control-Board';
+import ControlBoard from './components/Display';
 import Keypad from './components/Keypad';
+import data from './data';
 
-function App() {
+
+const App = () => {
+  const soundData = data;
   return (
-    <div className="container">
-      <Keypad />
+    <div id="drum-machine">
+      <Keypad soundData={soundData}/>
       <ControlBoard />
     </div>
   );

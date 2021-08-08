@@ -9,7 +9,7 @@ h1 {
   font-weight: 400;
 }
 
-.container {
+#drum-machine {
   width: 60%;
   max-width: 650px;
   height: 50vh;
@@ -28,6 +28,6 @@ h1 {
   border-right: 3px solid rgba(255, 255, 255, 0.438);
 }
 
-.control-board {
+#display {
 
 }

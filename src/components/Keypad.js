@@ -1,8 +1,10 @@
-
-const Keypad = () => {
+import Pad from './Pad';
+const Keypad = ({soundData}) => {
     return (
         <div className="keypad">
-            Keys
+            {soundData.map(item => {
+                return <Pad key={item.pad} item={item}/>
+            })}
         </div>
     );
 }
