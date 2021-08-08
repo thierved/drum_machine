@@ -4,7 +4,7 @@ const Pad = ({ item }) => {
         <button
             className={"drum-pad"}
             id={item.name}
-            onClick={() => console.log(item.name)}
+            onClick={() => document.getElementById(item.pad).play()}
         >
             <audio
                 src={item.sound}
