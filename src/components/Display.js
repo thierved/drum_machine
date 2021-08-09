@@ -1,10 +1,14 @@
 
-const ControlBoard = () => {
+
+const Display = ({soundName, switchBtn, setSwitchBtn}) => {
     return (
         <div className="display">
-            Control Board
+            <button id="switch"
+                onClick={() => {setSwitchBtn(!switchBtn)}}
+            >ON | OFF</button>
+            <div id="screen">{soundName && switchBtn ?`${soundName}` : ""}</div>
         </div>
     );
 }
 
-export default ControlBoard;
+export default Display;

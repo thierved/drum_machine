@@ -1,10 +1,15 @@
 
-const Pad = ({ item }) => {
+const Pad = ({ item, switchBtn, setSoundName }) => {
     return (
         <button
-            className={"drum-pad"}
+            className="drum-pad"
             id={item.name}
-            onClick={() => document.getElementById(item.pad).play()}
+            onClick={() => {
+                if (switchBtn) { 
+                    document.getElementById(item.pad).play();
+                    setSoundName(item.name.replaceAll("_", " ").toUpperCase())
+                }
+            }}
         >
             <audio
                 src={item.sound}
