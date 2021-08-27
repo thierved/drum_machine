@@ -13,14 +13,16 @@ const Display = ({ soundName, switchBtn, setSwitchBtn }) => {
   );
 }
 
-const Pad = ({ item, playSound, setSoundName }) => {
+const Pad = ({ item, switchBtn, setSoundName }) => {
   return (
     <button
       className="drum-pad"
       id={item.name}
       onClick={() => {
-        playSound(item.pad);
-        setSoundName(item.name);
+        if (switchBtn) {
+          document.getElementById(item.pad).play();
+          setSoundName(item.name.replaceAll("_", " ").toUpperCase());
+        }
       }}
     >
       <audio
@@ -33,7 +35,7 @@ const Pad = ({ item, playSound, setSoundName }) => {
   );
 }
 
-const Keypad = ({ soundData, switchBtn, setSoundName, playSound }) => {
+const Keypad = ({ setSoundName, soundData, switchBtn }) => {
 
   return (
     <div className="keypad">
@@ -41,8 +43,7 @@ const Keypad = ({ soundData, switchBtn, setSoundName, playSound }) => {
         return <Pad key={item.pad}
           item={item}
           switchBtn={switchBtn}
-          setSoundName={setSoundName}
-          playSound={playSound} />
+          setSoundName={setSoundName} />
       })
       }
     </div>
@@ -55,9 +56,10 @@ const App = () => {
   const [soundName, setSoundName] = useState();
 
   const playSound = (key) => {
+    console.log(switchBtn)
     if (switchBtn) {
       document.getElementById(key.toUpperCase()).play();
-      data.forEach(d => {
+      soundData.forEach(d => {
         if (d.pad === key.toUpperCase()) {
           setSoundName(d.name.replaceAll("_", " ").toUpperCase());
         }
@@ -65,15 +67,25 @@ const App = () => {
     }
   }
 
-  const handleKeyPress = e => {
-    if ("QWEASDZXC".includes(e.key.toUpperCase())) {
-      playSound(e.key);
-    }
-  }
+  
 
   useEffect(() => {
-    window.addEventListener("keypress", e => handleKeyPress(e));
-  });
+    const handleKeyPress = ({key}) => {
+      if ("QWEASDZXC".includes(key.toUpperCase())) {
+        console.log(switchBtn)
+        if (switchBtn) {
+          document.getElementById(key.toUpperCase()).play();
+          soundData.forEach(d => {
+            if (d.pad === key.toUpperCase()) {
+              setSoundName(d.name.replaceAll("_", " ").toUpperCase());
+            }
+          })
+        }
+      }
+    }
+    document.addEventListener("keypress", handleKeyPress);
+    return () => document.removeEventListener("keypress", handleKeyPress);
+  }, [switchBtn, soundData]);
 
   return (
     <div id="drum-machine">
