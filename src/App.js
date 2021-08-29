@@ -56,7 +56,6 @@ const App = () => {
   const [soundName, setSoundName] = useState();
 
   const playSound = (key) => {
-    console.log(switchBtn)
     if (switchBtn) {
       document.getElementById(key.toUpperCase()).play();
       soundData.forEach(d => {
@@ -66,8 +65,6 @@ const App = () => {
       })
     }
   }
-
-  
 
   useEffect(() => {
     const handleKeyPress = ({key}) => {
